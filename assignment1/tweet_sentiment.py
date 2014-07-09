@@ -1,6 +1,6 @@
 import sys
-import simplejson
 import json
+import re
 
 sentimentScores = {}
 
@@ -16,10 +16,10 @@ def parseSentimentScores(sent_file):
 def calculateSentiments(tweet_file):
 	for line in tweet_file:
 
-		#cleaning data
-		line = line.replace('false', '\"False\"')
-		line = line.replace('true', '\"True\"')
-		line = line.replace(':null', ':\"\"')
+		# regex cleanup
+		line = re.sub(r'(.*?:)false', r'\1"False"', line)
+		line = re.sub(r'(.*?:)true', r'\1"True"', line)
+		line = re.sub(r'(.*?:)null', r'\1""', line)
 
 		tweetObj = json.loads(line)
 		if tweetObj.has_key('text'):
