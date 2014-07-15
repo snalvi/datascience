@@ -1,6 +1,5 @@
 import sys
 import json
-import re
 
 hashtagFrequencies = {}
 topTenHashtags = {}
