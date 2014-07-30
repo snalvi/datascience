@@ -1,0 +1,15 @@
+SQL:
+#1
+SELECT COUNT(*) FROM (SELECT * FROM Frequency WHERE docid="10398_txt_earn");
+
+#2
+SELECT COUNT(*) FROM (SELECT * FROM Frequency WHERE docid="10398_txt_earn" AND count=1);
+
+#3
+SELECT COUNT(*) FROM (SELECT * FROM Frequency WHERE docid="10398_txt_earn" AND count=1 UNION SELECT * FROM Frequency WHERE docid="925_txt_trade" AND count=1);
+
+#4
+SELECT COUNT(*) FROM (SELECT * FROM Frequency WHERE term="parliament");
+use LIKE '%<keyword>%' for contains 
+
+#5
