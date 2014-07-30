@@ -16,10 +16,7 @@ def parseSentimentScores(sent_file):
 def calculateSentiments(tweet_file):
     for line in tweet_file:
 
-        # regex cleanup
-        line = re.sub(r'(.*?:)false', r'\1"False"', line)
-        line = re.sub(r'(.*?:)true', r'\1"True"', line)
-        line = re.sub(r'(.*?:)null', r'\1""', line)
+        line = line.encode('utf-8')
 
         tweetObj = json.loads(line)
         tweetSentimentScore = 0.0
